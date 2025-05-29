@@ -1,0 +1,50 @@
+Actividad 29
+Investigación sobre los disparadores en SQL
+¿Qué son los disparadores?
+Los disparadores, conocidos en inglés como triggers, son objetos que se crean
+dentro de una base de datos para que se ejecuten automáticamente cuando ocurre
+un evento específico como una inserción (INSERT), actualización (UPDATE) o
+eliminación (DELETE) de datos en una tabla.
+No se activan manualmente, sino que el sistema los ejecuta de forma automática
+cuando se cumple una condición determinada.
+¿Para qué sirven?
+Los disparadores se usan principalmente para automatizar tareas y mantener la
+integridad de los datos. Algunas cosas para las que sirven son:
+● Registrar cambios automáticamente (por ejemplo, guardar en una tabla de
+historial quién modificó un dato y cuándo).
+● Validar datos antes de que se inserten o actualicen.
+● Aplicar reglas de negocio directamente desde la base de datos.
+● Controlar cambios no deseados en los datos.
+Ventajas
+1. Automatización: no necesitan que el usuario los llame; se ejecutan solos.
+2. Seguridad de datos: evitan que se hagan cambios incorrectos o peligrosos.
+3. Auditoría: permiten guardar un registro de lo que ha pasado en una tabla.
+4. Centralización de reglas: las reglas se controlan desde la base de datos, no
+desde el programa.
+Desventajas
+1. Difíciles de detectar y depurar: a veces cuesta saber qué trigger se activó o
+por qué.
+2. Pueden afectar el rendimiento: si hay muchos o hacen tareas muy pesadas,
+la base de datos puede volverse lenta.
+3. Complejidad añadida: agregan más lógica dentro de la base de datos, lo cual
+puede dificultar el mantenimiento.
+4. Código oculto: si no se documentan bien, otros programadores pueden no
+saber que existen.
+¿Cómo se usan? (Sintaxis básica)
+CREATE TRIGGER nombre_disparador
+{BEFORE | AFTER | INSTEAD OF} {INSERT | UPDATE | DELETE}
+ON nombre_tabla
+FOR EACH ROW
+BEGIN
+ -- Código que se ejecuta automáticamente
+END;
+CREATE TRIGGER: crea el disparador.
+BEFORE o AFTER: indica si se ejecuta antes o después del evento.
+INSERT, UPDATE o DELETE: evento que lo activa.
+FOR EACH ROW: significa que se ejecuta por cada fila afectada.
+Dentro del BEGIN...END va el código que queremos ejecutar.
+Conclusión
+Después de investigar sobre los disparadores en SQL, entendí que son una
+herramienta muy útil para automatizar acciones dentro de la base de datos. Lo que
+más me llamó la atención es que no hace falta llamarlos desde el código, sino que
+se activan solos cuando ocurre algo específico, como un cambio en una tabla.
